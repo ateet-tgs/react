@@ -5,7 +5,7 @@ export const AuthLayout = () => {
   const isAuthenticated = getToken("accessToken");
 
   if (isAuthenticated) {
-    return <Navigate to="/user" replace />;
+    return <Navigate to="/customer" replace />;
   }
 
   return <Outlet />;

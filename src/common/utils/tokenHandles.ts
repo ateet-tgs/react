@@ -1,20 +1,17 @@
 import { TokenData } from "../interfaces";
 
 export const setToken = (tokenData: TokenData, role: string) => {
-  // if (role === "admin") {
-  //   localStorage.setItem("accessToken", tokenData.accessToken);
-  //   localStorage.setItem("refreshToken", tokenData.refreshToken);
-  //   return;
-  // }
+  if (role === "admin") {
+    localStorage.setItem("accessToken", tokenData.accessToken);
+    localStorage.setItem("refreshToken", tokenData.refreshToken);
+    return;
+  }
 
-  // if (role === "user") {
-  //   localStorage.setItem("customerAccessToken", tokenData.accessToken);
-  //   localStorage.setItem("customerRefreshToken", tokenData.refreshToken);
-  //   return;
-  // }
-
-  localStorage.setItem("accessToken", tokenData.accessToken);
-  localStorage.setItem("refreshToken", tokenData.refreshToken);
+  if (role === "customer") {
+    localStorage.setItem("customerAccessToken", tokenData.accessToken);
+    localStorage.setItem("customerRefreshToken", tokenData.refreshToken);
+    return;
+  }
 };
 
 export const getToken = (field: string) => {
@@ -28,11 +25,9 @@ export const removeTokens = (role: string) => {
     return;
   }
 
-  if (role === "user") {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+  if (role === "customer") {
+    localStorage.removeItem("customerAccessToken");
+    localStorage.removeItem("customerRefreshToken");
     return;
   }
-  localStorage.removeItem("managerAccessToken");
-  localStorage.removeItem("managerRefreshToken");
 };

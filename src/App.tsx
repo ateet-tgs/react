@@ -37,7 +37,7 @@ const App = () => {
           </ProtectedRoute>
         }
       >
-        <Route path="/user" element={<UserDashboard />} />
+        <Route path="/customer" element={<UserDashboard />} />
       </Route>
 
       {/* Fallback */}

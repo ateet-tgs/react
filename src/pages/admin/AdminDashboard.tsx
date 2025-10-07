@@ -5,7 +5,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    removeTokens("user");
+    removeTokens("admin");
     navigate("/auth/login");
   };
   return (

@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
-import axiosInstance from "../common/utils/axios";
+import { authApi } from "../common/utils/axios";
 import {
   ApiResponse,
   ForgotPassword,
@@ -9,7 +9,7 @@ import {
 
 export const useLogin = () => {
   return useMutation<AxiosResponse<ApiResponse>, Error, LoginPayload>({
-    mutationFn: (data) => axiosInstance.post<ApiResponse>("/auth/login", data),
+    mutationFn: (data) => authApi.post<ApiResponse>("/auth/login", data),
   });
 };
 
@@ -19,14 +19,12 @@ export const refreshTokenAPI = async (
   accessToken: string;
   refreshToken: string;
 }> => {
-  const response: AxiosResponse<ApiResponse> = await axiosInstance.post(
-    "/refresh",
-    { refreshToken }
-  );
+  const response: AxiosResponse<ApiResponse> = await authApi.post("/refresh", {
+    refreshToken,
+  });
 
   if (!response.data.status) {
-    const isManager = window.location.pathname.includes("/manager");
-    window.location.href = isManager ? "/manager/auth/login" : "/auth/login";
+    window.location.href = "/auth/login";
   }
 
   return response.data.data;
@@ -34,6 +32,6 @@ export const refreshTokenAPI = async (
 
 export const useGetProfileDetails = () => {
   return useMutation<AxiosResponse<ApiResponse>, Error, any>({
-    mutationFn: () => axiosInstance.get<ApiResponse>("/auth/me"),
+    mutationFn: () => authApi.get<ApiResponse>("/auth/me"),
   });
 };

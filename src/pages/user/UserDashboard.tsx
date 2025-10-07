@@ -7,7 +7,7 @@ const UserDashboard = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    removeTokens("user");
+    removeTokens("customer");
     navigate("/auth/login");
   };
 
@@ -16,8 +16,7 @@ const UserDashboard = () => {
       className="min-vh-100"
       style={{
         background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      }}
-    >
+      }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div className="container-fluid">
           <a className="navbar-brand fw-bold" href="#">
@@ -28,8 +27,7 @@ const UserDashboard = () => {
               <button
                 className="btn btn-outline-light dropdown-toggle"
                 type="button"
-                data-bs-toggle="dropdown"
-              >
+                data-bs-toggle="dropdown">
                 {userData.email}
               </button>
               <ul className="dropdown-menu">
@@ -72,8 +70,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-body text-white">
                 <div className="d-flex justify-content-between">
                   <div>
@@ -93,8 +90,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-body text-white">
                 <div className="d-flex justify-content-between">
                   <div>
@@ -114,8 +110,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-body text-white">
                 <div className="d-flex justify-content-between">
                   <div>
@@ -135,8 +130,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-body text-white">
                 <div className="d-flex justify-content-between">
                   <div>
@@ -159,8 +153,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-header bg-transparent border-0">
                 <h5 className="text-white mb-0">Recent Orders</h5>
               </div>
@@ -216,8 +209,7 @@ const UserDashboard = () => {
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-              }}
-            >
+              }}>
               <div className="card-header bg-transparent border-0">
                 <h5 className="text-white mb-0">Quick Actions</h5>
               </div>

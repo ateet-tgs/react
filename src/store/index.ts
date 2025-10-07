@@ -3,12 +3,12 @@ import { CurrentUserStore, userModel } from "./authModel";
 import { adminModel, CurrentAdminStore } from "./adminModel";
 
 export interface AppStore {
-  user: CurrentUserStore;
+  customer: CurrentUserStore;
   admin: CurrentAdminStore;
 }
 
 const storeModel: AppStore = {
-  user: userModel,
+  customer: userModel,
   admin: adminModel,
 };
 
