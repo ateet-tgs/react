@@ -1,0 +1,40 @@
+/* Page-specific styles, mapping to design tokens and keeping a tight palette */
+:root {
+  /* Map Bootstrap accent via our design token palette to keep colors consistent */
+  --brand-color: var(--color-chart-4); /* accent */
+}
+
+/* Accent utility */
+.text-brand {
+  color: var(--brand-color);
+}
+
+/* Branded button (floating action) */
+.btn-brand {
+  background: var(--brand-color);
+  color: var(--color-primary-foreground);
+  border: none;
+}
+.btn-brand:hover {
+  filter: brightness(0.95);
+}
+
+/* Promo scroller sizing */
+.promo-item {
+  height: 96px;
+  width: 260px;
+  object-fit: cover;
+}
+
+/* Subtle card rounding to match tokens */
+.card {
+  border-radius: var(--radius-lg);
+}
+.input-group-text,
+.form-control {
+  border-radius: var(--radius-lg);
+}
+.nav-link.active {
+  background: var(--brand-color);
+  color: var(--color-primary-foreground);
+}

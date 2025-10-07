@@ -17,8 +17,6 @@ const createAxiosInstance = (baseURL: string) => {
       if (path.startsWith("/customer")) tokenKey = "customerAccessToken";
 
       const token = tokenKey ? localStorage.getItem(tokenKey) : null;
-      console.log("Token Key:", tokenKey, "Token:", token);
-
       if (token) {
         config.headers["Authorization"] = `Bearer ${token}`;
       }
@@ -46,9 +44,9 @@ const createAxiosInstance = (baseURL: string) => {
 // Define all your service base URLs (can also use .env)
 const AUTH_BASE_URL = process.env.REACT_APP_AUTH_API_URL!;
 const ORDER_BASE_URL = process.env.REACT_APP_ORDER_API_URL!;
-const PRODUCT_BASE_URL = process.env.REACT_APP_PRODUCT_API_URL!;
+const ADMIN_BASE_URL = process.env.REACT_APP_ADMIN_API_URL!;
 
 // Create instances for each service
 export const authApi = createAxiosInstance(AUTH_BASE_URL);
 export const orderApi = createAxiosInstance(ORDER_BASE_URL);
-export const productApi = createAxiosInstance(PRODUCT_BASE_URL);
+export const adminApi = createAxiosInstance(ADMIN_BASE_URL);

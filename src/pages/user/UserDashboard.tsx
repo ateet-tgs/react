@@ -1,15 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../common/hooks";
 import { removeTokens } from "../../common/utils";
+import { useCartStore } from "../../common/hooks/useCartStore";
+import { useEffect } from "react";
 
 const UserDashboard = () => {
   const { userData } = useUserStore();
+  const { cartData } = useCartStore();
   const navigate = useNavigate();
 
   const logout = () => {
     removeTokens("customer");
     navigate("/auth/login");
   };
+
+  const navigateTo = (path: string) => {
+    navigate(path);
+  };
+
+  useEffect(() => {
+    console.log("Cart Data Updated:", cartData);
+  }, [cartData]);
 
   return (
     <div
@@ -23,6 +34,11 @@ const UserDashboard = () => {
             User Portal
           </a>
           <div className="d-flex">
+            <button
+              className="btn btn-outline-light"
+              onClick={() => navigateTo("cart")}>
+              My Cart
+            </button>
             <div className="dropdown">
               <button
                 className="btn btn-outline-light dropdown-toggle"
@@ -216,8 +232,10 @@ const UserDashboard = () => {
               <div className="card-body">
                 <div className="d-grid gap-2">
                   <button className="btn btn-primary">Track Order</button>
-                  <button className="btn btn-outline-light">
-                    View Wishlist
+                  <button
+                    className="btn btn-outline-light"
+                    onClick={() => navigateTo("/customer/items")}>
+                    Items
                   </button>
                   <button className="btn btn-outline-light">
                     Update Profile
